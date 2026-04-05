@@ -1,10 +1,6 @@
 {
   "version": 2,
   "name": "dizzy-hackers-mega",
-  "builds": [
-    { "src": "index.html", "use": "@vercel/static" }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "index.html" }
-  ]
+  "installCommand": "npm install",
+  "buildCommand": "npm run build"
 }
