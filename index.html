@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FusionX x Dizzy Hackers — Cyber Archive | Presidency University</title>
+    <meta name="description" content="Official landing page for FusionX x Dizzy Hackers Mega. 24-hour continuous offline hackathon at Presidency University, Bangalore. Build, Innovate, Win.">
+    <meta name="keywords" content="hackathon, dizzy hackers, presidency university, bangalore, tech, innovation, fusionx, coding contest">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dizzy-hackers.vercel.app/">
+    <meta property="og:title" content="FusionX x Dizzy Hackers — Cyber Archive">
+    <meta property="og:description" content="24-hour continuous offline hackathon. Innovation, Technology, and High-Stakes Building.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="FusionX x Dizzy Hackers — Cyber Archive">
+    <meta property="twitter:description" content="The ultimate hackathon experience. Join the FusionX x Dizzy collective.">
+    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <style>
+        :root {
+            --cyan: #00e5ff;
+            --magenta: #ff0066;
+            --amber: #ffaa00;
+            --emerald: #00ffa3;
+            --bg-deep: #05050a;
+            --bg-primary: #07070d;
+            --bg-card: rgba(10, 10, 22, 0.55);
+            --text-primary: #d8d8e4;
+            --text-muted: #5a5a72;
+            --border-subtle: rgba(0, 229, 255, 0.08);
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: rgba(0, 229, 255, 0.25);
+            color: #fff;
+        }
+
+        /* ── SCANLINES ── */
+        #scanlines {
+            position: fixed;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.3;
+            background: repeating-linear-gradient(to bottom, transparent 0px, transparent 2px,
+                    rgba(10, 10, 26, 0.08) 2px, rgba(10, 10, 26, 0.08) 4px);
+        }
+
+        /* ── GRAIN ── */
+        #grain {
+            position: fixed;
+            inset: -50%;
+            z-index: 2;
+            width: 200%;
+            height: 200%;
+            pointer-events: none;
+            opacity: 0.15;
+            animation: grainShift 0.5s steps(4) infinite;
+        }
+
+        @keyframes grainShift {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(-5%, -5%);
+            }
+
+            50% {
+                transform: translate(5%, 0);
+            }
+
+            75% {
+                transform: translate(0, 5%);
+            }
+
+            100% {
+                transform: translate(-5%, 0);
+            }
+        }
+
+        /* ── RAIN CANVAS ── */
+        #rainCanvas {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.22;
+        }
+
+        /* ── GLITCH TITLE ── */
+        .glitch-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2.8rem, 8vw, 7rem);
+            letter-spacing: 0.08em;
+            color: #fff;
+            text-shadow:
+                0 0 10px var(--cyan),
+                0 0 40px rgba(0, 229, 255, 0.4),
+                0 0 80px rgba(0, 229, 255, 0.15);
+            animation: glitchText 8s infinite;
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .glitch::before {
+            color: var(--cyan);
+            text-shadow: 0 0 10px var(--cyan);
+            animation: glitchBefore 8s infinite;
+            clip-path: inset(0 0 80% 0);
+        }
+
+        .glitch::after {
+            color: var(--magenta);
+            text-shadow: 0 0 10px var(--magenta);
+            animation: glitchAfter 8s infinite;
+            clip-path: inset(80% 0 0 0);
+        }
+
+        @keyframes glitchText {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            2% {
+                opacity: .85
+            }
+
+            4% {
+                opacity: 1
+            }
+
+            7% {
+                transform: translate(-2px, 1px)
+            }
+
+            9% {
+                transform: translate(2px, -1px)
+            }
+
+            11% {
+                transform: translate(0);
+                opacity: .92
+            }
+
+            12% {
+                opacity: 1
+            }
+
+            35% {
+                opacity: 1
+            }
+
+            36% {
+                opacity: .7
+            }
+
+            37% {
+                opacity: 1
+            }
+
+            72% {
+                opacity: 1
+            }
+
+            73% {
+                opacity: .8
+            }
+
+            74% {
+                opacity: 1
+            }
+
+            90% {
+                opacity: 1
+            }
+
+            91% {
+                opacity: .75
+            }
+
+            92% {
+                opacity: 1
+            }
+        }
+
+        @keyframes glitchBefore {
+
+            0%,
+            100% {
+                clip-path: inset(0 0 80% 0);
+                transform: translate(0)
+            }
+
+            5% {
+                clip-path: inset(15% 0 60% 0);
+                transform: translate(-4px, 0)
+            }
+
+            7% {
+                clip-path: inset(60% 0 10% 0);
+                transform: translate(4px, 0)
+            }
+
+            9% {
+                clip-path: inset(0 0 80% 0);
+                transform: translate(0)
+            }
+
+            38% {
+                clip-path: inset(40% 0 30% 0);
+                transform: translate(-3px, 0)
+            }
+
+            40% {
+                clip-path: inset(0 0 80% 0);
+                transform: translate(0)
+            }
+
+            74% {
+                clip-path: inset(25% 0 50% 0);
+                transform: translate(5px, 0)
+            }
+
+            76% {
+                clip-path: inset(0 0 80% 0);
+                transform: translate(0)
+            }
+        }
+
+        @keyframes glitchAfter {
+
+            0%,
+            100% {
+                clip-path: inset(80% 0 0 0);
+                transform: translate(0)
+            }
+
+            6% {
+                clip-path: inset(5% 0 70% 0);
+                transform: translate(4px, 0)
+            }
+
+            8% {
+                clip-path: inset(70% 0 5% 0);
+                transform: translate(-4px, 0)
+            }
+
+            10% {
+                clip-path: inset(80% 0 0 0);
+                transform: translate(0)
+            }
+
+            39% {
+                clip-path: inset(50% 0 20% 0);
+                transform: translate(3px, 0)
+            }
+
+            41% {
+                clip-path: inset(80% 0 0 0);
+                transform: translate(0)
+            }
+
+            75% {
+                clip-path: inset(10% 0 65% 0);
+                transform: translate(-5px, 0)
+            }
+
+            77% {
+                clip-path: inset(80% 0 0 0);
+                transform: translate(0)
+            }
+        }
+
+        /* ── NEON UTILITIES ── */
+        .neon-cyan {
+            color: var(--cyan);
+            text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+        }
+
+        .neon-magenta {
+            color: var(--magenta);
+            text-shadow: 0 0 8px rgba(255, 0, 102, 0.5);
+        }
+
+        .neon-border-cyan {
+            border-color: rgba(0, 229, 255, 0.15);
+        }
+
+        .neon-border-magenta {
+            border-color: rgba(255, 0, 102, 0.15);
+        }
+
+        /* ── CYBER CARD ── */
+        .cyber-card {
+            position: relative;
+            background: var(--bg-card);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--border-subtle);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            overflow: hidden;
+        }
+
+        .cyber-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            opacity: 0.4;
+            transition: opacity 0.5s;
+        }
+
+        .cyber-card:hover {
+            border-color: rgba(0, 229, 255, 0.25);
+            box-shadow: 0 0 40px rgba(0, 229, 255, 0.08), inset 0 0 40px rgba(0, 229, 255, 0.02);
+            transform: translateY(-4px);
+            filter: contrast(1.04) saturate(1.08);
+        }
+
+        .cyber-card:hover::before {
+            opacity: 0.8;
+        }
+
+        .cyber-card-magenta::before {
+            background: linear-gradient(90deg, transparent, var(--magenta), transparent);
+        }
+
+        .cyber-card-magenta:hover {
+            border-color: rgba(255, 0, 102, 0.25);
+            box-shadow: 0 0 40px rgba(255, 0, 102, 0.08), inset 0 0 40px rgba(255, 0, 102, 0.02);
+        }
+
+        .cyber-card-magenta:hover::before {
+            opacity: 0.8;
+        }
+
+        /* ── HERO ── */
+        .hero-mouse-glow {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            transition: background 0.3s ease;
+        }
+
+        /* ── CITY LAYERS ── */
+        .city-layer {
+            position: absolute;
+            bottom: 0;
+            left: -5%;
+            width: 110%;
+        }
+
+        .city-layer svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* ── TIMELINE ── */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 229, 255, 0.2) 10%, rgba(0, 229, 255, 0.2) 90%, transparent);
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 767px) {
+            .timeline-line {
+                left: 20px;
+            }
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-deep);
+            border: 2px solid var(--cyan);
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+            transition: all 0.3s;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 28px;
+            z-index: 2;
+        }
+
+        @media (max-width: 767px) {
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background: var(--cyan);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            border-color: var(--magenta);
+            box-shadow: 0 0 10px rgba(255, 0, 102, 0.3);
+        }
+
+        .timeline-item:nth-child(even):hover .timeline-dot {
+            background: var(--magenta);
+            box-shadow: 0 0 20px rgba(255, 0, 102, 0.6);
+        }
+
+        /* ── TYPEWRITER ── */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.1em;
+            background: var(--cyan);
+            box-shadow: 0 0 8px var(--cyan);
+            margin-left: 2px;
+            vertical-align: text-bottom;
+            animation: cursorBlink 0.8s step-end infinite;
+        }
+
+        @keyframes cursorBlink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        /* ── ENTRANCE ANIMATIONS ── */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-fade-1 {
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .hero-fade-2 {
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.2s forwards;
+        }
+
+        .hero-fade-3 {
+            opacity: 0;
+            animation: fadeInUp 1s ease 1.8s forwards;
+        }
+
+        .hero-fade-4 {
+            opacity: 0;
+            animation: fadeInUp 1s ease 2.4s forwards;
+        }
+
+        /* ── SCROLL INDICATOR ── */
+        @keyframes scrollBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: translateY(8px);
+                opacity: 1;
+            }
+        }
+
+        .scroll-indicator {
+            animation: scrollBounce 2s ease infinite;
+        }
+
+        /* ── DIVIDER ── */
+        .neon-divider {
+            height: 1px;
+            width: 100%;
+            max-width: 12rem;
+            margin: 0 auto;
+            background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.3), transparent);
+        }
+
+        /* ── SECTION LABEL ── */
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ── NAV ── */
+        .nav-glass {
+            background: rgba(5, 5, 10, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 229, 255, 0.06);
+        }
+
+        .nav-link {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--cyan);
+            text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
+        }
+
+        /* ── STATUS BLINK ── */
+        @keyframes statusBlink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0.3
+            }
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 6px var(--cyan);
+            animation: statusBlink 2s ease infinite;
+        }
+
+        /* ── CHARACTER IMAGE ── */
+        .char-img-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .char-img-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(5, 5, 10, 0.95) 0%, rgba(5, 5, 10, 0.3) 50%, transparent 100%);
+        }
+
+        .char-img-wrapper img {
+            transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1), filter 0.5s;
+            filter: saturate(0.6) brightness(0.8);
+        }
+
+        .cyber-card:hover .char-img-wrapper img {
+            transform: scale(1.05);
+            filter: saturate(0.8) brightness(0.9);
+        }
+
+        /* ── THEME ICON ── */
+        .theme-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            background: rgba(0, 229, 255, 0.04);
+            transition: all 0.4s;
+        }
+
+        .cyber-card:hover .theme-icon {
+            border-color: rgba(0, 229, 255, 0.35);
+            background: rgba(0, 229, 255, 0.08);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+        }
+
+        .theme-icon-magenta {
+            border-color: rgba(255, 0, 102, 0.15);
+            background: rgba(255, 0, 102, 0.04);
+        }
+
+        .cyber-card-magenta:hover .theme-icon-magenta {
+            border-color: rgba(255, 0, 102, 0.35);
+            background: rgba(255, 0, 102, 0.08);
+            box-shadow: 0 0 20px rgba(255, 0, 102, 0.15);
+        }
+
+        /* ── QUOTE SECTION ── */
+        .quote-bg {
+            background:
+                radial-gradient(ellipse at 30% 50%, rgba(0, 229, 255, 0.03) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 50%, rgba(255, 0, 102, 0.03) 0%, transparent 60%);
+        }
+
+        /* ── MOBILE MENU ── */
+        .mobile-menu {
+            transform: translateY(-100%);
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .mobile-menu.open {
+            transform: translateY(0);
+        }
+
+        /* ── TIMELINE HIGHLIGHT ── */
+        .timeline-highlight {
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 229, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 102, 0.05) 0%, transparent 40%);
+        }
+
+        .timeline-status {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            color: var(--cyan);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══ SCANLINES ═══ -->
+    <div id="scanlines"></div>
+
+    <!-- ═══ GRAIN ═══ -->
+    <div id="grain"></div>
+
+    <!-- ═══ RAIN ═══ -->
+    <canvas id="rainCanvas"></canvas>
+
+    <!-- ═══ NAVIGATION ═══ -->
+    <nav class="nav-glass fixed top-0 left-0 right-0 z-[100]">
+        <div class="max-w-7xl mx-auto px-5 h-14 flex items-center justify-between relative z-10">
+            <div class="flex items-center gap-3">
+                <div class="status-dot"></div>
+                <span
+                    class="font-['Space_Mono'] text-[0.65rem] tracking-[0.2em] uppercase text-[var(--text-muted)]">Dizzy-Node-01
+                    // Online</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#tracks" class="nav-link">Tracks</a>
+                <a href="#timeline" class="nav-link">Timeline</a>
+                <a href="#prizes" class="nav-link">Prizes</a>
+                <a href="#sponsors" class="nav-link">Sponsors</a>
+            </div>
+            <div class="hidden md:block">
+                <a href="https://unstop.com/p/fusionx-x-dizzy-hackers-presidency-university-bengaluru-1670362?lb=nygleqsL&utm_medium=Share&utm_source=WhatsApp" target="_blank" class="nav-link" style="color:var(--cyan);border:1px solid rgba(0,229,255,0.3);padding:0.5rem 1rem;border-radius:4px;transition:all 0.3s;">Register</a>
+            </div>
+            <button id="menuBtn" class="md:hidden text-[var(--text-muted)] hover:text-[var(--cyan)] transition-colors">
+                <iconify-icon icon="mdi:menu" width="22"></iconify-icon>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu"
+            class="mobile-menu md:hidden absolute top-14 left-0 right-0 nav-glass border-t border-[var(--border-subtle)]">
+            <div class="flex flex-col py-4 px-5 gap-4">
+                <a href="#about" class="nav-link mobile-nav-link">About</a>
+                <a href="#tracks" class="nav-link mobile-nav-link">Tracks</a>
+                <a href="#timeline" class="nav-link mobile-nav-link">Timeline</a>
+                <a href="#prizes" class="nav-link mobile-nav-link">Prizes</a>
+                <a href="#sponsors" class="nav-link mobile-nav-link">Sponsors</a>
+                <a href="https://unstop.com/p/fusionx-x-dizzy-hackers-presidency-university-bengaluru-1670362?lb=nygleqsL&utm_medium=Share&utm_source=WhatsApp" target="_blank" class="nav-link mobile-nav-link" style="color:var(--cyan);">Register Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+        <!-- Mouse Glow -->
+        <div class="hero-mouse-glow" id="heroGlow"></div>
+
+        <!-- City Layers -->
+        <div id="cityFar" class="city-layer" style="height:45%;z-index:1;"></div>
+        <div id="cityMid" class="city-layer" style="height:38%;z-index:2;"></div>
+        <div id="cityNear" class="city-layer" style="height:30%;z-index:3;"></div>
+
+        <!-- Ground fog -->
+        <div class="absolute bottom-0 left-0 right-0 h-32 z-[4]"
+            style="background:linear-gradient(to top, var(--bg-deep) 10%, rgba(0,229,255,0.02) 50%, transparent);">
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-5 flex flex-col items-center">
+            <p class="hero-fade-1 section-label mb-4" style="color:rgba(0,229,255,0.6);text-shadow:0 0 10px rgba(0,229,255,0.3);">
+                A 24-Hour National Level Hackathon
+            </p>
+            <div class="glitch-wrapper hero-fade-2">
+                <h1 class="glitch leading-tight" data-text="DIZZY HACKERS MEGA">DIZZY HACKERS MEGA</h1>
+            </div>
+            <p class="hero-fade-3 font-['Orbitron'] text-xs md:text-sm tracking-[0.2em] uppercase mt-6 max-w-xl"
+                style="color:var(--text-primary);letter-spacing:0.3em;">
+                Presidency University, Bangalore
+            </p>
+            
+            <div class="hero-fade-4 mt-8 flex flex-col md:flex-row items-center gap-4 md:gap-8 bg-black/40 backdrop-blur-md border border-white/5 py-3 px-8 rounded-full">
+                <div class="flex items-center gap-2">
+                    <iconify-icon icon="mdi:calendar" width="16" class="text-[var(--cyan)]"></iconify-icon>
+                    <span class="font-['Space_Mono'] text-[0.65rem] uppercase tracking-wider">April 24–25, 2026</span>
+                </div>
+                <div class="hidden md:block w-px h-4 bg-white/10"></div>
+                <div class="flex items-center gap-2">
+                    <iconify-icon icon="mdi:clock-outline" width="16" class="text-[var(--magenta)]"></iconify-icon>
+                    <span class="font-['Space_Mono'] text-[0.65rem] uppercase tracking-wider">24 Non-Stop Hours</span>
+                </div>
+                <div class="hidden md:block w-px h-4 bg-white/10"></div>
+                <div class="flex items-center gap-2">
+                    <iconify-icon icon="mdi:trophy" width="16" class="text-[var(--amber)]"></iconify-icon>
+                    <span class="font-['Space_Mono'] text-[0.65rem] uppercase tracking-wider">₹1,00,000+ Prize Pool</span>
+                </div>
+            </div>
+
+            <a href="https://unstop.com/p/fusionx-x-dizzy-hackers-presidency-university-bengaluru-1670362?lb=nygleqsL&utm_medium=Share&utm_source=WhatsApp" target="_blank" 
+               class="hero-fade-4 mt-12 px-10 py-4 bg-transparent border-2 border-[var(--cyan)] font-['Orbitron'] text-sm tracking-widest uppercase text-white hover:bg-[var(--cyan)] hover:text-black transition-all duration-500 rounded-sm relative group overflow-hidden">
+               <span class="relative z-10 font-bold">Register Now</span>
+               <div class="absolute inset-0 bg-[var(--cyan)] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+            </a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 hero-fade-4">
+            <span class="font-['Space_Mono'] text-[0.6rem] tracking-[0.3em] uppercase"
+                style="color:var(--text-muted);">Scroll</span>
+            <div class="scroll-indicator">
+                <iconify-icon icon="mdi:chevron-down" width="20" style="color:var(--cyan);opacity:0.6;"></iconify-icon>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="relative py-24 md:py-32 bg-black/20">
+        <div class="max-w-5xl mx-auto px-5">
+            <div class="text-center mb-16 reveal">
+                <p class="section-label mb-3">The Nexus</p>
+                <h2 class="font-['Orbitron'] text-2xl md:text-4xl font-bold tracking-wide">About the Event</h2>
+                <div class="neon-divider mt-5"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Theme Card 1: FusionX -->
+                <div class="cyber-card rounded-2xl p-8 md:p-12 reveal reveal-delay-1">
+                    <div class="theme-icon mb-6">
+                        <iconify-icon icon="mdi:lightning-bolt" width="26" style="color:var(--cyan);"></iconify-icon>
+                    </div>
+                    <h3 class="font-['Orbitron'] text-xl font-semibold tracking-wide neon-cyan mb-4">FusionX x Dizzy</h3>
+                    <p class="text-sm font-light leading-relaxed mb-6" style="color:var(--text-muted);">
+                        Presidency University's tech community joins forces with Dizzy Hackers for a <strong>24-hour continuous offline</strong> innovation marathon. Experience real-world problem solving in a high-intensity environment.
+                    </p>
+                    <ul class="space-y-4 text-sm font-light" style="color:var(--text-muted);">
+                        <li class="flex items-start gap-3">
+                            <iconify-icon icon="mdi:chevron-right" width="14" class="mt-1" style="color:var(--cyan);opacity:0.6;"></iconify-icon>
+                            <span>Offline Mode: Continuous 24h Development</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <iconify-icon icon="mdi:chevron-right" width="14" class="mt-1" style="color:var(--cyan);opacity:0.6;"></iconify-icon>
+                            <span>National Level Exposure and Recognition</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <iconify-icon icon="mdi:chevron-right" width="14" class="mt-1" style="color:var(--cyan);opacity:0.6;"></iconify-icon>
+                            <span>Mentorship from Industry Veterans</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Theme Card 2: Rules Snippet -->
+                <div class="cyber-card rounded-2xl p-8 md:p-12 reveal reveal-delay-2 cyber-card-magenta">
+                    <div class="theme-icon theme-icon-magenta mb-6">
+                        <iconify-icon icon="mdi:shield-check" width="26" style="color:var(--magenta);"></iconify-icon>
+                    </div>
+                    <h3 class="font-['Orbitron'] text-xl font-semibold tracking-wide neon-magenta mb-4">The Code of Honor</h3>
+                    <p class="text-sm font-light leading-relaxed mb-6" style="color:var(--text-muted);">
+                        Integrity is our primary protocol. All logic must be engineered during the event duration using your own hardware and creative power.
+                    </p>
+                    <ul class="space-y-4 text-sm font-light" style="color:var(--text-muted);">
+                        <li class="flex items-start gap-3">
+                            <iconify-icon icon="mdi:chevron-right" width="14" class="mt-1" style="color:var(--magenta);opacity:0.6;"></iconify-icon>
+                            <span>No Pre-built Projects Allowed</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <iconify-icon icon="mdi:chevron-right" width="14" class="mt-1" style="color:var(--magenta);opacity:0.6;"></iconify-icon>
+                            <span>Bring Your Own Laptops & Hardware</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <iconify-icon icon="mdi:chevron-right" width="14" class="mt-1" style="color:var(--magenta);opacity:0.6;"></iconify-icon>
+                            <span>Problem Statements Released at Kickoff</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+                <!-- Theme Card 2: Dizzy Hackers -->
+                <div class="cyber-card cyber-card-magenta rounded-2xl p-8 md:p-12 reveal reveal-delay-2">
+                    <div class="theme-icon theme-icon-magenta mb-6">
+                        <iconify-icon icon="mdi:incognito" width="26" style="color:var(--magenta);"></iconify-icon>
+                    </div>
+                    <h3 class="font-['Orbitron'] text-xl font-semibold tracking-wide neon-magenta mb-4">The Dizzy Edge</h3>
+                    <p class="text-sm font-light leading-relaxed mb-6" style="color:var(--text-muted);">
+                        We bring the hacker spirit. Dizzy Hackers MEGA is designed to push your technical limits, 
+                        forcing teams to think outside the box and solve real-world problems with elegance and speed.
+                    </p>
+                    <ul class="space-y-4 text-sm font-light" style="color:var(--text-muted);">
+                        <li class="flex items-start gap-3">
+                            <iconify-icon icon="mdi:chevron-right" width="14" class="mt-1" style="color:var(--magenta);opacity:0.6;"></iconify-icon>
+                            <span>High-Intensity 24-Hour Hacking Cycle</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <iconify-icon icon="mdi:chevron-right" width="14" class="mt-1" style="color:var(--magenta);opacity:0.6;"></iconify-icon>
+                            <span>Focus on Scalable & Real-World Solutions</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <iconify-icon icon="mdi:chevron-right" width="14" class="mt-1" style="color:var(--magenta);opacity:0.6;"></iconify-icon>
+                            <span>Competitive Arena for Top-Tier Talent</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ TRACKS ═══ -->
+    <section id="tracks" class="relative py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="text-center mb-16 reveal">
+                <p class="section-label mb-3">The Arena</p>
+                <h2 class="font-['Orbitron'] text-2xl md:text-3xl font-bold tracking-wide">Domain Tracks</h2>
+                <div class="neon-divider mt-5"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6" id="tracksGrid">
+                <!-- Injected via JS using character-card style -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ TIMELINE ═══ -->
+    <section id="timeline" class="relative py-32 z-10 timeline-highlight">
+        <div class="max-w-5xl mx-auto px-5">
+            <div class="text-center mb-16 reveal">
+                <div class="timeline-status">Active Mission Phase</div>
+                <p class="section-label mb-3">The Schedule</p>
+                <h2 class="font-['Orbitron'] text-3xl md:text-5xl font-extrabold italic tracking-wide">MISSION TIMELINE</h2>
+                <div class="neon-divider mt-5"></div>
+            </div>
+
+            <div class="relative" id="timelineContainer">
+                <div class="timeline-line"></div>
+                <!-- Items injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PRIZES ═══ -->
+    <section id="prizes" class="relative py-24 md:py-32">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="text-center mb-16 reveal">
+                <p class="section-label mb-3">High-Stakes</p>
+                <h2 class="font-['Orbitron'] text-2xl md:text-3xl font-bold tracking-wide">Grand Prize Pool</h2>
+                <div class="neon-divider mt-5"></div>
+            </div>
+
+            <!-- Prize Console -->
+            <div class="cyber-card rounded-3xl p-8 md:p-16 reveal border-t-2 border-t-[var(--amber)]/30">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                    
+                    <!-- Left Side: Big Bounty -->
+                    <div class="lg:col-span-5 text-center lg:text-left relative">
+                        <div class="absolute -top-10 -left-10 w-32 h-32 bg-[var(--amber)]/5 blur-3xl rounded-full"></div>
+                        <p class="font-['Space_Mono'] text-[0.6rem] uppercase tracking-[0.4em] mb-4" style="color:var(--amber);">// Total_Bounty</p>
+                        <h3 class="font-['Orbitron'] text-5xl md:text-7xl font-black text-[var(--amber)] mb-6 shadow-glow transition-all hover:scale-105 duration-500 cursor-default">
+                            ₹1,00,000<span class="text-3xl md:text-5xl opacity-80">+</span>
+                        </h3>
+                        <div class="flex items-center justify-center lg:justify-start gap-4">
+                            <div class="h-[1px] w-12 bg-[var(--amber)]/40"></div>
+                            <p class="font-['Space_Mono'] text-[0.7rem] uppercase tracking-widest text-white/50 leading-relaxed">
+                                Guaranteed rewards & <br>venture opportunities
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Perks Grid -->
+                    <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-y-12">
+                        <!-- Perk 1 -->
+                        <div class="group flex items-start gap-5">
+                            <div class="w-14 h-14 shrink-0 bg-[var(--cyan)]/10 rounded-xl flex items-center justify-center border border-[var(--cyan)]/20 group-hover:bg-[var(--cyan)]/20 group-hover:border-[var(--cyan)]/40 transition-all duration-500 shadow-lg">
+                                <iconify-icon icon="mdi:office-building-marker" width="28" style="color:var(--cyan);"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="font-['Orbitron'] text-xs font-bold uppercase tracking-wider text-white mb-2 group-hover:text-[var(--cyan)] transition-colors">Internship Opportunities</h4>
+                                <p class="text-[0.65rem] leading-relaxed text-slate-400 font-light" style="color:var(--text-muted);">Direct placement tracks at top tech partner firms.</p>
+                            </div>
+                        </div>
+
+                        <!-- Perk 2 -->
+                        <div class="group flex items-start gap-5">
+                            <div class="w-14 h-14 shrink-0 bg-[var(--magenta)]/10 rounded-xl flex items-center justify-center border border-[var(--magenta)]/20 group-hover:bg-[var(--magenta)]/20 group-hover:border-[var(--magenta)]/40 transition-all duration-500 shadow-lg">
+                                <iconify-icon icon="mdi:satellite-variant" width="28" style="color:var(--magenta);"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="font-['Orbitron'] text-xs font-bold uppercase tracking-wider text-white mb-2 group-hover:text-[var(--magenta)] transition-colors">Industry Exposure</h4>
+                                <p class="text-[0.65rem] leading-relaxed text-slate-400 font-light" style="color:var(--text-muted);">Connect with CTOs and Lead Architects from the valley.</p>
+                            </div>
+                        </div>
+
+                        <!-- Perk 3 -->
+                        <div class="group flex items-start gap-5">
+                            <div class="w-14 h-14 shrink-0 bg-[var(--amber)]/10 rounded-xl flex items-center justify-center border border-[var(--amber)]/20 group-hover:bg-[var(--amber)]/20 group-hover:border-[var(--amber)]/40 transition-all duration-500 shadow-lg">
+                                <iconify-icon icon="mdi:seal-variant" width="28" style="color:var(--amber);"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="font-['Orbitron'] text-xs font-bold uppercase tracking-wider text-white mb-2 group-hover:text-[var(--amber)] transition-colors">Prestigious Certificates</h4>
+                                <p class="text-[0.65rem] leading-relaxed text-slate-400 font-light" style="color:var(--text-muted);">Validated participation recognized by Presidency University.</p>
+                            </div>
+                        </div>
+
+                        <!-- Perk 4 -->
+                        <div class="group flex items-start gap-5">
+                            <div class="w-14 h-14 shrink-0 bg-[var(--cyan)]/10 rounded-xl flex items-center justify-center border border-[var(--cyan)]/20 group-hover:bg-[var(--cyan)]/20 group-hover:border-[var(--cyan)]/40 transition-all duration-500 shadow-lg">
+                                <iconify-icon icon="mdi:brain-freeze" width="28" style="color:var(--cyan);"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="font-['Orbitron'] text-xs font-bold uppercase tracking-wider text-white mb-2 group-hover:text-[var(--cyan)] transition-colors">Venture Mentorship</h4>
+                                <p class="text-[0.65rem] leading-relaxed text-slate-400 font-light" style="color:var(--text-muted);">Turn your hack into a startup with expert guidance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hacker Metadata / Perks -->
+                <div class="mt-12 pt-6 border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+                    <div class="flex items-center gap-3 justify-center md:justify-start">
+                        <iconify-icon icon="mdi:certificate" class="text-[var(--cyan)] text-xl"></iconify-icon>
+                        <span class="font-['Space_Mono'] text-[0.6rem] uppercase tracking-tighter text-white/40">Participation Certificates</span>
+                    </div>
+                    <div class="flex items-center gap-3 justify-center md:justify-start">
+                        <iconify-icon icon="mdi:food" class="text-[var(--amber)] text-xl"></iconify-icon>
+                        <span class="font-['Space_Mono'] text-[0.6rem] uppercase tracking-tighter text-white/40">Breakfast & Lunch Provided</span>
+                    </div>
+                    <div class="flex items-center gap-3 justify-center md:justify-start">
+                        <iconify-icon icon="mdi:gift" class="text-[var(--magenta)] text-xl"></iconify-icon>
+                        <span class="font-['Space_Mono'] text-[0.6rem] uppercase tracking-tighter text-white/40">Exclusive Goodies</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SPONSORS ═══ -->
+    <section id="sponsors" class="relative py-24 md:py-32 z-10">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="text-center mb-16 reveal">
+                <p class="section-label mb-3">Strategic Alliances</p>
+                <h2 class="font-['Orbitron'] text-2xl md:text-3xl font-bold tracking-wide text-white">Our Sponsors</h2>
+                <div class="neon-divider mt-5"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+                <!-- Sponsor 1 -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col items-center justify-center text-center reveal reveal-delay-1 group">
+                    <div class="w-12 h-12 mb-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                        <iconify-icon icon="simple-icons:monsterenergy" width="40" style="color:#6cc04a;"></iconify-icon>
+                    </div>
+                    <span class="font-['Orbitron'] text-[0.6rem] font-bold tracking-widest uppercase text-white/40 group-hover:text-white transition-colors">Monster Energy</span>
+                </div>
+                <!-- Sponsor 2 -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col items-center justify-center text-center reveal reveal-delay-2 group">
+                    <div class="w-12 h-12 mb-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                        <iconify-icon icon="mdi:p-circle" width="40" style="color:var(--cyan);"></iconify-icon>
+                    </div>
+                    <span class="font-['Orbitron'] text-[0.6rem] font-bold tracking-widest uppercase text-white/40 group-hover:text-white transition-colors">Progton</span>
+                </div>
+                <!-- Sponsor 3 -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col items-center justify-center text-center reveal reveal-delay-3 group">
+                    <div class="w-12 h-12 mb-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                        <iconify-icon icon="mdi:alpha-r-circle" width="40" style="color:#ff3333;"></iconify-icon>
+                    </div>
+                    <span class="font-['Orbitron'] text-[0.6rem] font-bold tracking-widest uppercase text-white/40 group-hover:text-white transition-colors">Red Pearl</span>
+                </div>
+                <!-- Sponsor 4 -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col items-center justify-center text-center reveal reveal-delay-4 group">
+                    <div class="w-12 h-12 mb-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                        <iconify-icon icon="mdi:api" width="40" style="color:var(--magenta);"></iconify-icon>
+                    </div>
+                    <span class="font-['Orbitron'] text-[0.6rem] font-bold tracking-widest uppercase text-white/40 group-hover:text-white transition-colors">Smartledger.ai</span>
+                </div>
+                <!-- Sponsor 5 -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col items-center justify-center text-center reveal reveal-delay-5 group">
+                    <div class="w-12 h-12 mb-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                        <iconify-icon icon="mdi:coffee" width="40" style="color:#d2a679;"></iconify-icon>
+                    </div>
+                    <span class="font-['Orbitron'] text-[0.6rem] font-bold tracking-widest uppercase text-white/40 group-hover:text-white transition-colors">Amara Coffee</span>
+                </div>
+                <!-- Sponsor 6 -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col items-center justify-center text-center reveal reveal-delay-1 group">
+                    <div class="w-12 h-12 mb-4 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity text-white">
+                        <h4 class="font-bold text-lg tracking-tighter">HARMAN</h4>
+                    </div>
+                    <span class="font-['Space_Mono'] text-[0.45rem] tracking-[0.2em] uppercase text-white/30">A Samsung Company</span>
+                </div>
+                <!-- Sponsor 7 -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col items-center justify-center text-center reveal reveal-delay-2 group">
+                    <div class="w-12 h-12 mb-4 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity text-white">
+                        <h4 class="font-bold text-lg tracking-tighter">LTIMindtree</h4>
+                    </div>
+                    <span class="font-['Space_Mono'] text-[0.45rem] tracking-[0.2em] uppercase text-white/30">Tech Consulting</span>
+                </div>
+                <!-- Sponsor 8 -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col items-center justify-center text-center reveal reveal-delay-3 group">
+                    <div class="w-12 h-12 mb-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                        <iconify-icon icon="mdi:console-line" width="40" style="color:#ff4444;"></iconify-icon>
+                    </div>
+                    <span class="font-['Orbitron'] text-[0.6rem] font-bold tracking-widest uppercase text-white/40 group-hover:text-white transition-colors">Hackup Tech</span>
+                </div>
+                <!-- Sponsor 9 -->
+                <div class="cyber-card rounded-xl p-6 flex flex-col items-center justify-center text-center reveal reveal-delay-4 group">
+                    <div class="w-12 h-12 mb-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                        <iconify-icon icon="mdi:rabbit" width="44" style="color:var(--magenta);"></iconify-icon>
+                    </div>
+                    <span class="font-['Orbitron'] text-[0.6rem] font-bold tracking-widest uppercase text-white/40 group-hover:text-white transition-colors">Pod</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ RULES & PARTICIPATION ═══ -->
+    <section id="participation" class="relative py-24 md:py-32 bg-black/20 z-10">
+        <div class="max-w-6xl mx-auto px-5">
+            <div class="text-center mb-16 reveal">
+                <p class="section-label mb-3">Operation Directives</p>
+                <h2 class="font-['Orbitron'] text-2xl md:text-3xl font-bold tracking-wide">Rules & Eligibility</h2>
+                <div class="neon-divider mt-5"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Eligibility -->
+                <div class="cyber-card p-8 rounded-2xl reveal">
+                    <h3 class="font-['Orbitron'] text-sm font-bold mb-6 text-[var(--cyan)] border-b border-white/10 pb-4 flex items-center gap-2">
+                        <iconify-icon icon="mdi:account-check"></iconify-icon> Eligibility
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3 text-xs leading-relaxed text-white/50">
+                            <iconify-icon icon="mdi:check-circle" class="text-[var(--cyan)] shrink-0 mt-1"></iconify-icon>
+                            Open to all UG/PG students with a valid college identity card.
+                        </li>
+                        <li class="flex gap-3 text-xs leading-relaxed text-white/50">
+                            <iconify-icon icon="mdi:check-circle" class="text-[var(--cyan)] shrink-0 mt-1"></iconify-icon>
+                            Teams must consist of 2–4 members. Inter-specialization teams allowed.
+                        </li>
+                        <li class="flex gap-3 text-xs leading-relaxed text-white/50">
+                            <iconify-icon icon="mdi:check-circle" class="text-[var(--cyan)] shrink-0 mt-1"></iconify-icon>
+                            Registration via Unstop platform is mandatory before the deadline.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Ground Rules -->
+                <div class="cyber-card p-8 rounded-2xl reveal reveal-delay-1 cyber-card-magenta">
+                    <h3 class="font-['Orbitron'] text-sm font-bold mb-6 text-[var(--magenta)] border-b border-white/10 pb-4 flex items-center gap-2">
+                        <iconify-icon icon="mdi:gavel"></iconify-icon> Hackathon Rules
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3 text-xs leading-relaxed text-white/50">
+                            <iconify-icon icon="mdi:shield-alert" class="text-[var(--magenta)] shrink-0 mt-1"></iconify-icon>
+                            Work must be built entirely during the 24-hour period. No pre-built modules.
+                        </li>
+                        <li class="flex gap-3 text-xs leading-relaxed text-white/50">
+                            <iconify-icon icon="mdi:shield-alert" class="text-[var(--magenta)] shrink-0 mt-1"></iconify-icon>
+                            Plagiarism or unfair means result in immediate disqualification.
+                        </li>
+                        <li class="flex gap-3 text-xs leading-relaxed text-white/50">
+                            <iconify-icon icon="mdi:shield-alert" class="text-[var(--magenta)] shrink-0 mt-1"></iconify-icon>
+                            Participants must bring their own hardware: laptops, extension boards, etc.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Perks & Logistics -->
+                <div class="cyber-card p-8 rounded-2xl reveal reveal-delay-2">
+                    <h3 class="font-['Orbitron'] text-sm font-bold mb-6 text-[var(--amber)] border-b border-white/10 pb-4 flex items-center gap-2">
+                        <iconify-icon icon="mdi:heart-flash"></iconify-icon> Perks & Facilities
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3 text-xs leading-relaxed text-white/50">
+                            <iconify-icon icon="mdi:food" class="text-[var(--amber)] shrink-0 mt-1"></iconify-icon>
+                            Fuel for the mission: Breakfast and Lunch will be provided for all hacks.
+                        </li>
+                        <li class="flex gap-3 text-xs leading-relaxed text-white/50">
+                            <iconify-icon icon="mdi:bed" class="text-[var(--amber)] shrink-0 mt-1"></iconify-icon>
+                            Accommodation support is available (Contact Head Organizer individually).
+                        </li>
+                        <li class="flex gap-3 text-xs leading-relaxed text-white/50">
+                            <iconify-icon icon="mdi:certificate" class="text-[var(--amber)] shrink-0 mt-1"></iconify-icon>
+                            Official participation certificates and exciting goodies for every team.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FINAL CTA ═══ -->
+    <section class="relative py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--cyan)]/5 to-transparent"></div>
+        <div class="max-w-3xl mx-auto px-5 relative z-10 text-center reveal">
+            <p class="font-['Space_Mono'] text-[0.6rem] uppercase tracking-[0.3em] text-[var(--magenta)] mb-6">
+                Note: Registrations close 1 week before the event. Slots are limited.
+            </p>
+            <h2 class="font-['Orbitron'] text-3xl md:text-5xl font-black italic tracking-tighter mb-6">BUILD IT. INNOVATE. CREATE SOMETHING AMAZING.</h2>
+            <div class="neon-divider mb-10"></div>
+            <a href="https://unstop.com/p/fusionx-x-dizzy-hackers-presidency-university-bengaluru-1670362?lb=nygleqsL&utm_medium=Share&utm_source=WhatsApp" target="_blank" 
+               class="inline-block px-12 py-5 bg-[var(--cyan)] text-black font-['Orbitron'] font-bold tracking-widest uppercase hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(0,229,255,0.4)]">
+               Register Now
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="relative py-16 border-t" style="border-color:var(--border-subtle);">
+        <div class="max-w-5xl mx-auto px-5 text-center">
+            <p class="font-['Orbitron'] text-sm tracking-[0.2em] uppercase mb-3" style="color:rgba(0,229,255,0.3);">
+                Dizzy Hackers Mega</p>
+            <p class="text-xs font-light" style="color:var(--text-muted);">
+                Cyber Manifesto — Built for the Underground.<br>
+                Operation Dizzy © 2024–2027. All Rights Liberated.
+            </p>
+            <div class="neon-divider mt-8 mb-6"></div>
+            <p class="font-['Space_Mono'] text-[0.6rem] tracking-[0.15em]" style="color:rgba(90,90,114,0.5);">
+                &lt;/END_TRANSMISSION&gt;
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // ═══════════════════════════════════════
+        // DATA
+        // ═══════════════════════════════════════
+        const timelineData = [
+            { year: 'Day 1', type: 'CORE', title: 'Opening Ceremony', desc: 'Kickoff at Presidency University campus. Vision and goals shared by FusionX and Dizzy Hackers.' },
+            { year: 'Day 1', type: 'EDGE', title: 'Problem Statements', desc: 'Official release of problem statements across all 5 tracks. Team formation finalization.' },
+            { year: 'Day 1', type: 'CORE', title: 'Hacking Begins', desc: '24-hour clock starts. Mentors available for guidance and technical support.' },
+            { year: 'Day 1', type: 'EDGE', title: 'Midnight Review', desc: 'Optional checkpoint for teams to sync with mentors and refine their prototypes.' },
+            { year: 'Day 2', type: 'CORE', title: 'Final Submissions', desc: 'Hacking concludes. All code and documentation must be submitted for review.' },
+            { year: 'Day 2', type: 'EDGE', title: 'Presentations', desc: 'Top teams pitch their solutions to the industry jury panel. Live demos required.' },
+            { year: 'Day 2', type: 'CORE', title: 'Jury Evaluation', desc: 'Judging based on innovation, impact, and technical implementation.' },
+            { year: 'Day 2', type: 'EDGE', title: 'Winners Announced', desc: 'Grand results ceremony. Distribution of ₹1,00,000+ prizes and certificates.' },
+        ];
+
+        const tracksData = [
+            {
+                name: 'AI & Machine Learning',
+                role: 'Neural Intelligence',
+                desc: 'Building the autonomous systems of tomorrow. Train models that can see, hear, and understand.',
+                img: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800',
+                icon: 'mdi:brain',
+                accent: 'cyan'
+            },
+            {
+                name: 'Data Science & Big Data',
+                role: 'Information Warfare',
+                desc: 'Mining the vast digital oceans. Transform raw data into strategic foresight and actionable power.',
+                img: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&q=80&w=800',
+                icon: 'mdi:database',
+                accent: 'magenta'
+            },
+            {
+                name: 'Cybersecurity',
+                role: 'The Digital Shield',
+                desc: 'Defend the net against zero-day threats. Master encryption, penetration testing, and digital forensics.',
+                img: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800',
+                icon: 'mdi:shield-lock',
+                accent: 'amber'
+            },
+            {
+                name: 'IoT & DevOps',
+                role: 'Hardware Nexus',
+                desc: 'Bridging the physical and digital. Orchestrate smart environments and seamless deployment pipelines.',
+                img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+                icon: 'mdi:access-point-network',
+                accent: 'cyan'
+            },
+            {
+                name: 'Emerging Tech',
+                role: 'The Next Dimension',
+                desc: 'Quantum computing, spatial web, and beyond. Explore the tech that will redefine reality itself.',
+                img: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&q=80&w=800',
+                icon: 'mdi:auto-fix',
+                accent: 'magenta'
+            },
+        ];
+
+        // ═══════════════════════════════════════
+        // FILM GRAIN GENERATOR
+        // ═══════════════════════════════════════
+        (function generateGrain() {
+            const c = document.createElement('canvas');
+            c.width = 256; c.height = 256;
+            const ctx = c.getContext('2d');
+            const img = ctx.createImageData(256, 256);
+            for (let i = 0; i < img.data.length; i += 4) {
+                const v = Math.random() * 255;
+                img.data[i] = img.data[i + 1] = img.data[i + 2] = v;
+                img.data[i + 3] = 12;
+            }
+            ctx.putImageData(img, 0, 0);
+            document.getElementById('grain').style.backgroundImage = `url(${c.toDataURL()})`;
+        })();
+
+        // ═══════════════════════════════════════
+        // RAIN
+        // ═══════════════════════════════════════
+        (function initCinematicStream() {
+            const canvas = document.getElementById('rainCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&<>{}[]|/\\';
+            const columns = Math.floor(window.innerWidth / 16);
+            const drops = Array.from({length: columns}, () => Math.random() * -100);
+            const ambientParticles = Array.from({length: 60}, () => ({
+                x: Math.random() * window.innerWidth, 
+                y: Math.random() * window.innerHeight,
+                vx: (Math.random() - 0.5) * 0.3, 
+                vy: (Math.random() - 0.5) * 0.3,
+                r: Math.random() * 1.5 + 0.5, 
+                o: Math.random() * 0.4 + 0.1
+            }));
+
+            function draw() {
+                // Cinematic trails
+                ctx.fillStyle = 'rgba(3,3,3,0.08)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.font = '13px "Space Mono", monospace';
+                for (let i = 0; i < drops.length; i++) {
+                    const ch = chars[Math.floor(Math.random() * chars.length)];
+                    const brightness = Math.random();
+                    
+                    // Spark Logic
+                    if (brightness > 0.96) ctx.fillStyle = 'rgba(255,170,0,0.6)'; // Amber spark
+                    else if (brightness > 0.88) ctx.fillStyle = 'rgba(0,229,255,0.35)'; // Cyan spark
+                    else ctx.fillStyle = `rgba(232,232,232,${0.04 + Math.random() * 0.08})`; // Faint white
+                    
+                    ctx.fillText(ch, i * 16, drops[i] * 16);
+                    
+                    if (drops[i] * 16 > canvas.height && Math.random() > 0.985) {
+                        drops[i] = 0;
+                    }
+                    drops[i] += 0.4 + Math.random() * 0.3;
+                }
+
+                // Ambient Floating Particles
+                ambientParticles.forEach(p => {
+                    p.x += p.vx; p.y += p.vy;
+                    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0,229,255,${p.o})`;
+                    ctx.fill();
+                });
+
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        // ═══════════════════════════════════════
+        // CITYSCAPE GENERATOR
+        // ═══════════════════════════════════════
+        function generateCity(container, count, minH, maxH, fillColor, windowColor, windowChance) {
+            const W = 1920, H = 500;
+            const svgNS = 'http://www.w3.org/2000/svg';
+            const svg = document.createElementNS(svgNS, 'svg');
+            svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+            svg.setAttribute('preserveAspectRatio', 'none');
+            svg.style.cssText = 'width:100%;height:100%;display:block;';
+
+            const bw = W / count;
+            let pathD = `M0,${H} `;
+            const buildings = [];
+
+            for (let i = 0; i < count; i++) {
+                const h = minH + Math.random() * (maxH - minH);
+                const x = i * bw;
+                const w = bw * (0.7 + Math.random() * 0.3);
+                const bx = x + (bw - w) / 2;
+                const top = H - h;
+                pathD += `L${bx},${top} L${bx + w},${top} `;
+                buildings.push({ x: bx, y: top, w, h });
+            }
+            pathD += `L${W},${H} Z`;
+
+            const path = document.createElementNS(svgNS, 'path');
+            path.setAttribute('d', pathD);
+            path.setAttribute('fill', fillColor);
+            svg.appendChild(path);
+
+            // Windows
+            buildings.forEach(b => {
+                if (Math.random() > windowChance) return;
+                const cols = Math.floor(b.w / 12);
+                const rows = Math.floor(b.h / 16);
+                for (let r = 1; r < rows; r++) {
+                    for (let c = 0; c < cols; c++) {
+                        if (Math.random() > 0.35) continue;
+                        const wx = b.x + 4 + c * 12;
+                        const wy = b.y + 8 + r * 16;
+                        const rect = document.createElementNS(svgNS, 'rect');
+                        rect.setAttribute('x', wx);
+                        rect.setAttribute('y', wy);
+                        rect.setAttribute('width', 4);
+                        rect.setAttribute('height', 5);
+                        rect.setAttribute('fill', windowColor);
+                        rect.setAttribute('opacity', (0.3 + Math.random() * 0.5).toFixed(2));
+                        svg.appendChild(rect);
+                    }
+                }
+            });
+
+            container.appendChild(svg);
+        }
+
+        generateCity(document.getElementById('cityFar'), 50, 40, 160, '#0b0b18', 'rgba(0,229,255,0.5)', 0.8);
+        generateCity(document.getElementById('cityMid'), 35, 60, 220, '#08081a', 'rgba(255,0,102,0.4)', 0.7);
+        generateCity(document.getElementById('cityNear'), 22, 80, 280, '#050510', 'rgba(0,229,255,0.6)', 0.9);
+
+        // ═══════════════════════════════════════
+        // PARALLAX
+        // ═══════════════════════════════════════
+        const cityFar = document.getElementById('cityFar');
+        const cityMid = document.getElementById('cityMid');
+        const cityNear = document.getElementById('cityNear');
+        let ticking = false;
+
+        function updateParallax() {
+            const sy = window.scrollY;
+            cityFar.style.transform = `translate3d(0,${sy * 0.08}px,0)`;
+            cityMid.style.transform = `translate3d(0,${sy * 0.18}px,0)`;
+            cityNear.style.transform = `translate3d(0,${sy * 0.30}px,0)`;
+            ticking = false;
+        }
+        window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; } });
+
+        // ═══════════════════════════════════════
+        // MOUSE GLOW (Hero)
+        // ═══════════════════════════════════════
+        const heroGlow = document.getElementById('heroGlow');
+        document.getElementById('hero').addEventListener('mousemove', (e) => {
+            const r = e.currentTarget.getBoundingClientRect();
+            heroGlow.style.background = `radial-gradient(600px circle at ${e.clientX - r.left}px ${e.clientY - r.top}px, rgba(0,229,255,0.045), transparent 70%)`;
+        });
+        document.getElementById('hero').addEventListener('mouseleave', () => {
+            heroGlow.style.background = 'none';
+        });
+
+        // ═══════════════════════════════════════
+        // TIMELINE RENDER
+        // ═══════════════════════════════════════
+        (function renderTimeline() {
+            const container = document.getElementById('timelineContainer');
+            timelineData.forEach((item, i) => {
+                const isLeft = i % 2 === 0;
+                const isMobile = window.innerWidth < 768;
+                const accent = item.type === 'CORE' ? 'cyan' : 'magenta';
+                const accentColor = accent === 'cyan' ? 'var(--cyan)' : 'var(--magenta)';
+                const typeLabel = item.type === 'CORE' ? 'BOOT' : 'SYNC';
+
+                const div = document.createElement('div');
+                div.className = `timeline-item relative mb-10 md:mb-14 reveal reveal-delay-${Math.min(i % 4 + 1, 4)}`;
+
+                const dot = document.createElement('div');
+                dot.className = 'timeline-dot';
+                div.appendChild(dot);
+
+                const card = document.createElement('div');
+                card.className = 'cyber-card rounded-xl p-6 md:p-7 max-w-md';
+                if (accent === 'magenta') card.classList.add('cyber-card-magenta');
+
+                if (isMobile) {
+                    card.style.marginLeft = '44px';
+                } else {
+                    card.style.marginLeft = isLeft ? '0' : 'auto';
+                    card.style.marginRight = isLeft ? 'auto' : '0';
+                }
+
+                card.innerHTML = `
+      <div class="flex items-center gap-3 mb-3">
+        <span class="font-['Space_Mono'] text-xs font-bold" style="color:${accentColor};">${item.year}</span>
+        <span class="font-['Space_Mono'] text-[0.6rem] tracking-[0.15em] uppercase px-2 py-0.5 rounded"
+              style="border:1px solid ${accent === 'cyan' ? 'rgba(0,229,255,0.2)' : 'rgba(255,0,102,0.2)'};color:${accentColor};opacity:0.7;">
+          ${typeLabel}
+        </span>
+      </div>
+      <h3 class="font-['Orbitron'] text-sm font-semibold tracking-wide mb-2">${item.title}</h3>
+      <p class="text-xs font-light leading-relaxed" style="color:var(--text-muted);">${item.desc}</p>
+    `;
+                div.appendChild(card);
+                container.appendChild(div);
+            });
+        })();
+
+        // ═══════════════════════════════════════
+        // TRACKS RENDER (Premium Style)
+        // ═══════════════════════════════════════
+        (function renderTracks() {
+            const grid = document.getElementById('tracksGrid');
+            const accentMap = {
+                cyan: { color: 'var(--cyan)', border: 'rgba(0,229,255,0.15)', hoverBorder: 'rgba(0,229,255,0.3)', glow: 'rgba(0,229,255,0.08)' },
+                magenta: { color: 'var(--magenta)', border: 'rgba(255,0,102,0.15)', hoverBorder: 'rgba(255,0,102,0.3)', glow: 'rgba(255,0,102,0.08)' },
+                amber: { color: 'var(--amber)', border: 'rgba(255,170,0,0.15)', hoverBorder: 'rgba(255,170,0,0.3)', glow: 'rgba(255,170,0,0.08)' },
+            };
+
+            tracksData.forEach((track, i) => {
+                const a = accentMap[track.accent];
+                const extraClass = track.accent === 'magenta' ? 'cyber-card-magenta' : '';
+                const card = document.createElement('div');
+                card.className = `cyber-card ${extraClass} rounded-2xl overflow-hidden reveal reveal-delay-${i + 1}`;
+                card.style.cssText = `--card-accent:${a.color};--card-border:${a.border};--card-hover-border:${a.hoverBorder};--card-glow:${a.glow};`;
+                card.innerHTML = `
+                    <div class="char-img-wrapper h-48 md:h-56">
+                        <img src="${track.img}" alt="${track.name}" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                            <iconify-icon icon="${track.icon}" width="14" style="color:${a.color};opacity:0.7;"></iconify-icon>
+                            <span class="font-['Space_Mono'] text-[0.55rem] tracking-[0.15em] uppercase" style="color:${a.color};opacity:0.6;">${track.role}</span>
+                        </div>
+                        <h3 class="font-['Orbitron'] text-xs font-semibold tracking-wide mb-2" style="color:${a.color};">${track.name}</h3>
+                        <p class="text-[0.65rem] font-light leading-relaxed" style="color:var(--text-muted);">${track.desc}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        })();
+
+        // Typewriter disabled for this version to match static matter requirements
+        (function initTypewriter() {
+            // Placeholder to avoid errors if needed
+        })();
+
+        // ═══════════════════════════════════════
+        // SCROLL REVEAL
+        // ═══════════════════════════════════════
+        (function initReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        })();
+
+        // ═══════════════════════════════════════
+        // MOBILE MENU
+        // ═══════════════════════════════════════
+        (function initMobileMenu() {
+            const btn = document.getElementById('menuBtn');
+            const menu = document.getElementById('mobileMenu');
+            let open = false;
+
+            btn.addEventListener('click', () => {
+                open = !open;
+                menu.classList.toggle('open', open);
+                btn.innerHTML = open
+                    ? '<iconify-icon icon="mdi:close" width="22"></iconify-icon>'
+                    : '<iconify-icon icon="mdi:menu" width="22"></iconify-icon>';
+            });
+
+            menu.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    open = false;
+                    menu.classList.remove('open');
+                    btn.innerHTML = '<iconify-icon icon="mdi:menu" width="22"></iconify-icon>';
+                });
+            });
+        })();
+
+        // ═══════════════════════════════════════
+        // NAV SCROLL STATE
+        // ═══════════════════════════════════════
+        (function initNavScroll() {
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 80) {
+                    nav.style.borderBottomColor = 'rgba(0,229,255,0.1)';
+                } else {
+                    nav.style.borderBottomColor = 'rgba(0,229,255,0.06)';
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>
