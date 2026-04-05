@@ -34,9 +34,9 @@
             --bg-deep: #05050a;
             --bg-primary: #07070d;
             --bg-card: rgba(10, 10, 22, 0.55);
-            --text-primary: #d8d8e4;
-            --text-muted: #5a5a72;
-            --border-subtle: rgba(0, 229, 255, 0.08);
+            --text-primary: #ffffff;
+            --text-muted: #cbd5e1;
+            --border-subtle: rgba(0, 229, 255, 0.2);
         }
 
         *,
@@ -694,12 +694,22 @@
 
         /* ── MOBILE MENU ── */
         .mobile-menu {
-            transform: translateY(-100%);
-            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
         }
 
         .mobile-menu.open {
+            display: block;
+            opacity: 1;
             transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .desktop-only {
+                display: none !important;
+            }
         }
 
         /* ── TIMELINE HIGHLIGHT ── */
@@ -738,11 +748,11 @@
     <!-- ═══ NAVIGATION ═══ -->
     <nav class="nav-glass fixed top-0 left-0 right-0 z-[100]">
         <div class="max-w-7xl mx-auto px-5 h-14 flex items-center justify-between relative z-10">
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-3 shrink-0">
                 <div class="status-dot"></div>
-                <span
-                    class="font-['Space_Mono'] text-[0.65rem] tracking-[0.2em] uppercase text-[var(--text-muted)]">Dizzy-Node-01
-                    // Online</span>
+                <span class="font-['Space_Mono'] text-[0.6rem] md:text-[0.65rem] tracking-[0.2em] uppercase text-[var(--text-muted)]">
+                    Dizzy-Node-01 // Online
+                </span>
             </div>
             <div class="hidden md:flex items-center gap-8">
                 <a href="#about" class="nav-link">About</a>
@@ -751,8 +761,8 @@
                 <a href="#prizes" class="nav-link">Prizes</a>
                 <a href="#sponsors" class="nav-link">Sponsors</a>
             </div>
-            <div class="hidden md:block">
-                <a href="https://unstop.com/p/fusionx-x-dizzy-hackers-presidency-university-bengaluru-1670362?lb=nygleqsL&utm_medium=Share&utm_source=WhatsApp" target="_blank" class="nav-link" style="color:var(--cyan);border:1px solid rgba(0,229,255,0.3);padding:0.5rem 1rem;border-radius:4px;transition:all 0.3s;">Register</a>
+            <div class="hidden md:block grow-0 desktop-only">
+                <a href="https://unstop.com/p/fusionx-x-dizzy-hackers-presidency-university-bengaluru-1670362?lb=nygleqsL&utm_medium=Share&utm_source=WhatsApp" target="_blank" class="nav-link" style="color:var(--cyan);border:1px solid rgba(0,229,255,0.4);padding:0.5rem 1.4rem;border-radius:4px;transition:all 0.3s;background:rgba(0,229,255,0.06); font-weight: 700; font-family: 'Orbitron'; font-size: 0.6rem;">Register</a>
             </div>
             <button id="menuBtn" class="md:hidden text-[var(--text-muted)] hover:text-[var(--cyan)] transition-colors">
                 <iconify-icon icon="mdi:menu" width="22"></iconify-icon>
